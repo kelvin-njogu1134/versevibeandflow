@@ -1,126 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style/style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>about</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Momo+Signature&family=Momo+Trust+Sans:wght@200..800&family=Playwrite+CZ:wght@100..400&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</head>
-<body>
-    <div class="page1">
-    <div class="logo">
-                
-            <h2 class="animate__animated animate__bounceInDown">VerseVibe&<span>Flow</span></h2>
-            <h6 class="animate__animated animate__bounceIn">Stories That Feel like Coming Home</h6>
-            </div>
-   
-
-            <!-- mobile hamburger -->
-            <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
-                <span class="hamburger"></span>
-            </button>
-
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="index.public.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" id="aboutMenu" aria-haspopup="true" aria-expanded="false">About</a>
-                        <ul class="dropdown-menu" aria-label="About submenu">
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="aboutme.html">About Me</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                </ul>
-            </nav>
-
-            <div class="container">
-                <h2 class="animate__animated animate__bounceIn" >Welcome !</h2>
-                <p class="txt1">If you have found yourself here, it propably means
-                    you love stories. The quiet ones. The honest ones.
-                     The ones that stay with you long after you close the page.
-                     Stories that feel like coming home even when life does not.
-                </p>
-
-                    <p class="txt2">This space is my little corner of the world.
-                       A place where words breathe. A place where I let life 
-                       spill out in the form of fiction, reflections, soft truths,
-                        and the small moments that shape us. I write about healing 
-                        and hurt. About the days that feel heavy and the days that 
-                        remind you the light is still there. About becoming. About 
-                        remembering who you are. About rediscovering your voice after 
-                        life has tried to silence it.</p>
-
-                    <p class="txt3">Here, nothing is perfect. Nothing is forced. Everything is real. Every story carries a piece of something I have lived, something I have felt, or something I have quietly learned while trying to grow in my own way. If you read closely, you might find echoes of your own journey hidden between the lines.</p>
-            
-                    <p class="txt4">Here, nothing is perfect. Nothing is forced. Everything is real. Every story carries a piece of something I have lived, something I have felt, or something I have quietly learned while trying to grow in my own way. If you read closely, you might find echoes of your own journey hidden between the lines.</p>
-            
-                    <p class="txt5">I hope this is a place where you breathe a little deeper. A place where the words feel familiar even if we have never met. A place that reminds you that you are not alone in the things you feel.</p>
-            </div>
-
-            
-    </div>
     
-<script>
-// Intersection Observer for scroll-triggered animations
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
-};
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — VerseVibe&Flow</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Titillium+Web:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body class="about-page">
+  <div class="page1">
+    <header class="header-row">
+      <div class="logo">
+        <h2 class="animate__animated animate__bounceInDown">VerseVibe&<span>Flow</span></h2>
+        <h6 class="animate__animated animate__bounceIn">Stories That Feel like Coming Home</h6>
+      </div>
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('animate-in');
-    }
-  });
-}, observerOptions);
+      <!-- mobile hamburger -->
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+        <span class="hamburger"></span>
+      </button>
 
-// Observe all txt elements
-document.querySelectorAll('.txt1, .txt2, .txt3, .txt4, .txt5').forEach(el => {
-  observer.observe(el);
-});
-</script>
-<script>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.public.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#" id="aboutMenu" aria-haspopup="true" aria-expanded="false">About</a>
+            <ul class="dropdown-menu" aria-label="About submenu">
+              <li><a href="about.html">About</a></li>
+              <li><a href="aboutme.html">About Me</a></li>
+            </ul>
+          </li>
+          <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h2 class="animate__animated animate__bounceIn" style="color: red;">Welcome!</h2>
+
+      <p class="txt1">If you have found yourself here, it probably means you love stories. The quiet ones. The honest ones. The ones that stay with you long after you close the page — stories that feel like coming home even when life does not.</p>
+
+      <p class="txt2">This space is my little corner of the world. A place where words breathe. A place where I let life spill out in the form of fiction, reflections, soft truths, and the small moments that shape us. I write about healing and hurt, the days that feel heavy, and the days that remind you the light is still there.</p>
+
+      <p class="txt3">Here, nothing is perfect. Nothing is forced. Everything is real. Every story carries a piece of something I have lived, something I have felt, or something I have quietly learned while trying to grow in my own way.</p>
+
+      <p class="txt4">If you read closely, you might find echoes of your own journey hidden between the lines. These are the quiet conversations — the one-sentence truths that hold more weight than they first appear.</p>
+
+      <p class="txt5">I hope this is a place where you breathe a little deeper. A place where the words feel familiar even if we have never met. A place that reminds you that you are not alone in the things you feel.</p>
+    </div>
+  </div>
+
+  <script>
+    // Intersection Observer for scroll-triggered animations
+    (function(){
+      const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{ if(entry.isIntersecting) entry.target.classList.add('animate-in'); });
+      }, observerOptions);
+      document.querySelectorAll('.txt1, .txt2, .txt3, .txt4, .txt5').forEach(el=>observer.observe(el));
+    })();
+  </script>
+
+  <script>
     // Mobile nav toggle and dropdown tap behavior (same as index)
     (function(){
-        const toggle = document.querySelector('.nav-toggle');
-        const nav = document.getElementById('main-nav');
-        toggle?.addEventListener('click', ()=>{
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open');
-        });
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('main-nav');
+      toggle?.addEventListener('click', ()=>{
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
 
-        document.querySelectorAll('.dropdown > a').forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                if(window.matchMedia('(max-width: 900px)').matches){
-                    e.preventDefault();
-                    const li = trigger.parentElement;
-                    const expanded = trigger.getAttribute('aria-expanded') === 'true';
-                    trigger.setAttribute('aria-expanded', String(!expanded));
-                    li.classList.toggle('open');
-                }
-            });
+      document.querySelectorAll('.dropdown > a').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          if(window.matchMedia('(max-width: 900px)').matches){
+            e.preventDefault();
+            const li = trigger.parentElement;
+            const expanded = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', String(!expanded));
+            li.classList.toggle('open');
+          }
         });
+      });
 
-        document.addEventListener('click', (e)=>{
-            if(!nav.classList.contains('open')) return;
-            if(e.target.closest('#main-nav') || e.target.closest('.nav-toggle')) return;
-            nav.classList.remove('open');
-            toggle.setAttribute('aria-expanded','false');
-        });
+      document.addEventListener('click', (e)=>{
+        if(!nav.classList.contains('open')) return;
+        if(e.target.closest('#main-nav') || e.target.closest('.nav-toggle')) return;
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded','false');
+      });
     })();
-</script>
+  </script>
 </body>
 </html>

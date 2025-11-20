@@ -1,278 +1,104 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <style>
-        *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-.page1{
-    background-color: teal;
-    height: 100vh;
-    width: 100%;
-    
-}
-.logo{
-font-family: "Dancing Script", cursive;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 30px;
-  margin-left:35% ;
-  padding-top: 40px;
-  
-}
-.logo span{
-    color: red;
-}
-
-nav ul{
-    list-style: none;   
-  padding: 0;         
-  margin: 0;         
-  display: flex;      
-  gap: 20px; 
-  margin-left:70%;
-    margin-top: -60px;
-}
-
-nav{
-        position: relative;
-        z-index: 20;
-}
-
-nav ul li{
-    list-style: none;   
-    padding: 0;         
-    margin: 10px;          
-    display: flex;      
-    gap: 20px;    
-}
-nav ul li a{
-    text-decoration: none; 
-    color: #000000; 
-    font-weight: 550;        
-    font-size: 20px;
-    
-    display: inline-block;
-    padding: 6px 10px;
-    border-radius: 6px;
-    transition: color 0.22s ease, background-color 0.22s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    will-change: transform, background-color;
-}
-
-nav ul li a:hover{
-    color: white;
-    background-color: rgba(255,255,255,0.18);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-    cursor: pointer;
-}
-
-nav ul li a:focus-visible{
-    outline: 2px solid rgba(255,255,255,0.25);
-    outline-offset: 3px;
-}
-
-
-.dropdown{
-    position: relative;
-}
-
-.dropdown > a{
-    display: inline-block;
-}
-
-.dropdown-menu{
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    min-width: 160px;
-    background:teal;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(248, 247, 247, 0.18);
-    padding: 6px 8px;
-    list-style: none;
-    margin: 0;
-    transform: translateY(-6px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 160ms ease, transform 160ms ease;
-    z-index: 40;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    align-items: stretch;
-}
-
-.dropdown-menu li{
-    padding: 0;
-}
-
-.dropdown-menu li a{
-    color: #111;
-    display: block;
-    font-size: 20px;
-    padding: 8px 14px;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.dropdown-menu li a:hover,
-.dropdown-menu li a:focus{
-    background: rgba(0,0,0,0.06);
-}
-
-
-.dropdown:hover > .dropdown-menu,
-.dropdown:focus-within > .dropdown-menu{
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-.contact-form input,
-.contact-form textarea,
-.contact-form button {
-  display: block;   /* stack vertically */
-  width: 20%;
-  margin-bottom: 15px;  /* space between fields */
-  padding: 12px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-left: 40%;
-  position: relative;
-  top: 200px; 
-}
-/* ensure page container can be used as positioning context */
-.page1{
-    position: relative;
-}
-
-/* center the socials in the middle of the page and animate icons */
-.socials{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 22px;
-    align-items: center;
-    justify-content: center;
-    z-index: 50;
-}
-
-.socials ion-icon{
-    font-size: 34px;
-    color: #ffffff;
-    display: inline-block;
-    transition: transform 200ms ease, color 160ms ease;
-    animation: float 3s ease-in-out infinite;
-}
-
-/* slight stagger so icons move out of sync */
-.socials ion-icon:nth-child(1){ animation-delay: 0s; }
-.socials ion-icon:nth-child(2){ animation-delay: 0.15s; }
-.socials ion-icon:nth-child(3){ animation-delay: 0.3s; }
-.socials ion-icon:nth-child(4){ animation-delay: 0.45s; }
-
-.socials ion-icon:hover{ transform: translateY(-6px) scale(1.06); color: #69ff3b; }
-
-@keyframes float{
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
+        #main-nav{
+            margin-left: 90px;
+        }
     </style>
-    <link rel="stylesheet" href="style/style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacts</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Momo+Signature&family=Momo+Trust+Sans:wght@200..800&family=Playwrite+CZ:wght@100..400&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacts — VerseVibe&Flow</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
-<body>
-    <div class="page1">
-            <div class="logo">
-                
-            <h2 class="animate__animated animate__bounceInDown">VerseVibe&<span>Flow</span></h2>
-            <h6 class="animate__animated animate__bounceIn">Stories That Feel like Coming Home</h6>
-            </div>
-   
+<body class="contacts-page">
+  <div class="page1">
+    <header class="header-row">
+      <div class="logo">
+        <h2 class="animate__animated animate__bounceInDown">VerseVibe&<span>Flow</span></h2>
+        <h6 class="animate__animated animate__bounceIn">Stories That Feel like Coming Home</h6>
+      </div>
 
-            <!-- mobile hamburger -->
-            <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
-                <span class="hamburger"></span>
-            </button>
+      <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
 
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="index.public.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" id="aboutMenu" aria-haspopup="true" aria-expanded="false">About</a>
-                        <ul class="dropdown-menu" aria-label="About submenu">
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="aboutme.html">About Me</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                </ul>
-            </nav>
+      <nav id="main-nav">
+        <ul>
+          <li><a href="index.public.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#" id="aboutMenu" aria-haspopup="true" aria-expanded="false">About</a>
+            <ul class="dropdown-menu" aria-label="About submenu">
+              <li><a href="about.html">About</a></li>
+              <li><a href="aboutme.html">About Me</a></li>
+            </ul>
+          </li>
+          <li><a href="contacts.html">Contacts</a></li>
+        </ul>
+      </nav>
+    </header>
 
-            <div class="socials">
-                <ion-icon name="logo-facebook"></ion-icon>
-                <ion-icon name="logo-instagram"></ion-icon>
-                <ion-icon name="logo-whatsapp"></ion-icon>
-                <ion-icon name="call-outline"></ion-icon>
-            </div>
-
-           <form class="contact-form">
-  <input type="text" placeholder="Your Name" required>
-  <input type="email" placeholder="Your Email" required>
-  <textarea placeholder="Your Message" required></textarea>
-  <button type="submit">Send</button>
-</form>
-
+    <div class="socials">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <ion-icon name="logo-instagram"></ion-icon>
+      <ion-icon name="logo-whatsapp"></ion-icon>
+      <ion-icon name="call-outline"></ion-icon>
     </div>
-    
-<script>
-    // Mobile nav toggle and dropdown tap behavior
+
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    // Mobile nav toggle, dropdown tap behavior and Escape-to-close
     (function(){
-        const toggle = document.querySelector('.nav-toggle');
-        const nav = document.getElementById('main-nav');
-        toggle?.addEventListener('click', ()=>{
-            const expanded = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('open');
-        });
+      const toggle = document.querySelector('.nav-toggle');
+      const nav = document.getElementById('main-nav');
+      function closeNav(){
+        nav.classList.remove('open');
+        toggle?.setAttribute('aria-expanded','false');
+      }
+      toggle?.addEventListener('click', ()=>{
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open');
+      });
 
-        document.querySelectorAll('.dropdown > a').forEach(trigger => {
-            trigger.addEventListener('click', (e) => {
-                if(window.matchMedia('(max-width: 900px)').matches){
-                    e.preventDefault();
-                    const li = trigger.parentElement;
-                    const expanded = trigger.getAttribute('aria-expanded') === 'true';
-                    trigger.setAttribute('aria-expanded', String(!expanded));
-                    li.classList.toggle('open');
-                }
-            });
+      document.querySelectorAll('.dropdown > a').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          if(window.matchMedia('(max-width: 900px)').matches){
+            e.preventDefault();
+            const li = trigger.parentElement;
+            const expanded = trigger.getAttribute('aria-expanded') === 'true';
+            trigger.setAttribute('aria-expanded', String(!expanded));
+            li.classList.toggle('open');
+          }
         });
+      });
 
-        document.addEventListener('click', (e)=>{
-            if(!nav.classList.contains('open')) return;
-            if(e.target.closest('#main-nav') || e.target.closest('.nav-toggle')) return;
-            nav.classList.remove('open');
-            toggle.setAttribute('aria-expanded','false');
-        });
+      document.addEventListener('click', (e)=>{
+        if(!nav.classList.contains('open')) return;
+        if(e.target.closest('#main-nav') || e.target.closest('.nav-toggle')) return;
+        closeNav();
+      });
+
+      // Close nav on Escape key for accessibility
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' || e.key === 'Esc'){
+          if(nav.classList.contains('open')) closeNav();
+        }
+      });
     })();
-</script>
+  </script>
 </body>
 </html>
