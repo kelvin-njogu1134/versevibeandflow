@@ -23,6 +23,24 @@ font-family: "Dancing Script", cursive;
     color: red;
 }
 
+/* Home page specific spacing: drop the logo a bit for a nicer starting position */
+.home-page .logo{
+  padding-top: 72px; /* increases vertical spacing on home only */
+}
+
+/* Ensure nav items sit lower on the home page and are visible */
+.home-page nav ul{
+  margin-top: 8px; /* override the -60px used globally so links aren't hidden */
+}
+
+/* Improve contrast for nav links on the home page */
+.home-page nav ul li a{
+  color: #fff;
+}
+.home-page nav ul li a:hover{
+  background-color: rgba(255,255,255,0.12);
+}
+
 nav ul{
     list-style: none;   
   padding: 0;         
