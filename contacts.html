@@ -184,6 +184,7 @@ nav ul li a:focus-visible{
     100% { transform: translateY(0); }
 }
     </style>
+    <link rel="stylesheet" href="style/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacts</title>
@@ -207,7 +208,12 @@ nav ul li a:focus-visible{
             </div>
    
 
-            <nav>
+            <!-- mobile hamburger -->
+            <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="main-nav">
                 <ul>
                     <li><a href="index.public.html">Home</a></li>
                     <li class="dropdown">
@@ -219,7 +225,7 @@ nav ul li a:focus-visible{
                     </li>
                     <li><a href="contacts.html">Contacts</a></li>
                 </ul>
-            </nav> 
+            </nav>
 
             <div class="socials">
                 <ion-icon name="logo-facebook"></ion-icon>
@@ -237,5 +243,36 @@ nav ul li a:focus-visible{
 
     </div>
     
+<script>
+    // Mobile nav toggle and dropdown tap behavior
+    (function(){
+        const toggle = document.querySelector('.nav-toggle');
+        const nav = document.getElementById('main-nav');
+        toggle?.addEventListener('click', ()=>{
+            const expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.dropdown > a').forEach(trigger => {
+            trigger.addEventListener('click', (e) => {
+                if(window.matchMedia('(max-width: 900px)').matches){
+                    e.preventDefault();
+                    const li = trigger.parentElement;
+                    const expanded = trigger.getAttribute('aria-expanded') === 'true';
+                    trigger.setAttribute('aria-expanded', String(!expanded));
+                    li.classList.toggle('open');
+                }
+            });
+        });
+
+        document.addEventListener('click', (e)=>{
+            if(!nav.classList.contains('open')) return;
+            if(e.target.closest('#main-nav') || e.target.closest('.nav-toggle')) return;
+            nav.classList.remove('open');
+            toggle.setAttribute('aria-expanded','false');
+        });
+    })();
+</script>
 </body>
 </html>
