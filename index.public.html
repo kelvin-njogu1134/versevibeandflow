@@ -22,9 +22,13 @@
             <h2 class="animate__animated animate__bounceInDown">VerseVibe&<span>Flow</span></h2>
             <h6 class="animate__animated animate__bounceIn">Stories That Feel like Coming Home</h6>
             </div>
-   
 
-            <nav>
+            <!-- Mobile hamburger toggle -->
+            <button class="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Open navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <nav id="main-nav">
                 <ul>
                     <li><a href="index.public.html">Home</a></li>
                     <li class="dropdown">
@@ -36,7 +40,10 @@
                     </li>
                     <li><a href="contacts.html">Contacts</a></li>
                 </ul>
-            </nav> 
+            </nav>
+                  
+               
+            
 
             <div class="container">
                     <div class="card1">
@@ -93,5 +100,38 @@
 
     </div>
     
+    <script>
+        // Nav toggle for mobile
+        (function(){
+            const toggle = document.querySelector('.nav-toggle');
+            const nav = document.getElementById('main-nav');
+            toggle?.addEventListener('click', ()=>{
+                const expanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!expanded));
+                nav.classList.toggle('open');
+            });
+
+            // Make About dropdown tappable on small screens
+            document.querySelectorAll('.dropdown > a').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    if(window.matchMedia('(max-width: 900px)').matches){
+                        e.preventDefault();
+                        const li = trigger.parentElement;
+                        const expanded = trigger.getAttribute('aria-expanded') === 'true';
+                        trigger.setAttribute('aria-expanded', String(!expanded));
+                        li.classList.toggle('open');
+                    }
+                });
+            });
+
+            // Close nav on outside click (mobile)
+            document.addEventListener('click', (e)=>{
+                if(!nav.classList.contains('open')) return;
+                if(e.target.closest('#main-nav') || e.target.closest('.nav-toggle')) return;
+                nav.classList.remove('open');
+                toggle.setAttribute('aria-expanded','false');
+            });
+        })();
+    </script>
 </body>
 </html>

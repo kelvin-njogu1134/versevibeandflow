@@ -38,6 +38,59 @@ nav{
         z-index: 20;
 }
 
+/* Hamburger toggle (hidden on wide screens) */
+.nav-toggle{
+    display: none;
+    position: absolute;
+    right: 14%;
+    top: 22px;
+    width: 44px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 60;
+}
+.nav-toggle .hamburger{
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: #f9f4f4;
+    position: relative;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 26px;
+    height: 2px;
+    background: #e0dede;
+}
+.nav-toggle .hamburger::before{ top: -8px }
+.nav-toggle .hamburger::after{ top: 8px }
+
+/* Responsive behaviour: small screens use vertical drawer */
+@media (max-width: 900px){
+  nav ul{ display:flex; flex-direction:column; gap:6px; margin-left:0; padding:12px; }
+  nav{ position: fixed; right: 0; top: 0; height: 100vh; width: 260px; transform: translateX(110%); background: rgba(239, 236, 236, 0.82); backdrop-filter: blur(4px); transition: transform 300ms ease; padding-top: 72px; }
+  nav.open{ transform: translateX(0); }
+  nav ul li{ margin: 6px 0; }
+  nav ul li a{ color: #fff; font-size:18px; padding:10px 12px; }
+  .nav-toggle{ display: block; right: 18px; top: 18px }
+  .logo{ margin-left: 8%; }
+  /* Dropdown behavior on mobile: show when parent has .open */
+  .dropdown-menu{ position: static; transform: none; opacity: 1; pointer-events: auto; display:none; background: transparent; box-shadow:none; padding-left: 6px }
+  .dropdown.open > .dropdown-menu{ display: block }
+}
+
+/* Close nav when not open: keep behavior for wide screens intact */
+@media (min-width: 901px){
+  .nav-toggle{ display:none }
+  nav{ position: relative; transform: none; width: auto; height: auto; background: transparent; padding-top:0 }
+  nav ul{ flex-direction: row; gap:20px; margin-left:70%; margin-top:-60px }
+}
+
 nav ul li{
     list-style: none;   
     padding: 0;         
@@ -69,6 +122,34 @@ nav ul li a:hover{
 nav ul li a:focus-visible{
     outline: 2px solid rgba(255,255,255,0.25);
     outline-offset: 3px;
+}
+
+/* Top-level nav entrance animation (subtle, staggered) */
+nav > ul > li > a{
+  opacity: 0;
+  transform: translateY(8px) scale(0.99);
+  /* entrance then gentle pulse; pulse is delayed so entrance finishes first */
+  animation: navIn 420ms cubic-bezier(.2,.9,.2,1) forwards, navPulse 4000ms ease-in-out 1.0s infinite;
+}
+
+nav > ul > li:nth-child(1) > a{ animation-delay: 0.06s, 0.06s; }
+nav > ul > li:nth-child(2) > a{ animation-delay: 0.18s, 0.18s; }
+nav > ul > li:nth-child(3) > a{ animation-delay: 0.30s, 0.30s; }
+
+@keyframes navIn{
+  from{ opacity: 0; transform: translateY(8px) scale(0.99); }
+  to{ opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes navPulse{
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.01); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Respect users who prefer reduced motion: only run entrance (no looping pulse) */
+@media (prefers-reduced-motion: reduce){
+  nav > ul > li > a{ animation: navIn 420ms cubic-bezier(.2,.9,.2,1) forwards; }
 }
 
 
